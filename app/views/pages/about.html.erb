@@ -1,0 +1,12 @@
+<h1><%= @user.name %></h1>
+<p>This is my profile...</p>
+<h2>My hobbies:</h2>
+<ul>
+  <% @user.hobbies.each do |hobby| %>
+    <li><%= hobby %></li>
+  <% end %>
+</ul>
+
+<% if @user.show_hidden_info %>
+  I am 23 y.o.
+<% end %>
