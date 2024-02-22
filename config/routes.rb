@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
 
   get 'notes', to: 'notes#index'
-  get 'notes/:id', to: 'notes#show'
+  post 'notes', to: 'notes#create'
+  get 'notes/new', to: 'notes#new'
+  get 'notes/:id', to: 'notes#show', as: :note
 
   get 'items', to: 'items#index'
   get 'items/:id', to: 'items#show'
