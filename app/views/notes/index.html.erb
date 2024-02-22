@@ -8,7 +8,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Body</th>
-      <th>Actions</th>
+      <th colspan='2'>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +18,9 @@
         <td><%= link_to note.name, note %></td>
         <td><%= note.body %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td>
+          <%= button_to 'Delete', note, method: :delete %>
+        </td>
       </tr>
     <% end %>
   </tbody>
