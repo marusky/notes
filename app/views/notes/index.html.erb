@@ -1,6 +1,6 @@
 <h1>Notes</h1>
 
-<%= link_to 'New Note', notes_new_path %>
+<%= link_to 'New Note', new_note_path %>
 
 <table>
   <thead>
@@ -8,6 +8,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Body</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
         <td><%= note.id %></td>
         <td><%= link_to note.name, note %></td>
         <td><%= note.body %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
       </tr>
     <% end %>
   </tbody>

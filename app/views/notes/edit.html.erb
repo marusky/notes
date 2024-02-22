@@ -1,0 +1,11 @@
+<%= form_with url: note_path, method: :patch do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @note.name %>    
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, value: @note.body %>
+  </div>
+  <%= f.submit 'Update' %>
+<% end %>
