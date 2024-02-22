@@ -33,6 +33,6 @@ class NotesController < ApplicationController
 
     @note.delete
 
-    redirect_to notes_path
+    redirect_to notes_url
   end
 end
