@@ -1,5 +1,6 @@
 <h1>Items</h1>
 
+<%= link_to 'New Item', items_new_path %>
 <table>
   <thead>
     <tr>
@@ -13,7 +14,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.title %></td>
+        <td><%= link_to item.title, item %></td>
         <td><%= item.expected_cost %></td>
         <td><%= item.is_done %></td>
       </tr>

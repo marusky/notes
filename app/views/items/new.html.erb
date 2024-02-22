@@ -1,0 +1,17 @@
+<%= form_with url: items_path do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :expected_cost %>
+    <%= f.number_field :expected_cost, step: 0.01 %>
+  </div>
+  <div>
+    <%= f.label :is_done %>
+    <%= f.check_box :is_done %>
+  </div>
+  <%= f.submit 'Create' %>
+<% end %>
+
+<%= link_to 'Back to items', items_path %>
