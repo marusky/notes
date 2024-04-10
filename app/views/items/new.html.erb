@@ -1,3 +1,7 @@
-<%= render 'form' %>
+<h1 class='text-2xl font-semibold'>New item</h1>
 
-<%= link_to 'Back to items', items_path %>
+<div class='mt-6'>
+  <%= render 'form' %>
+</div>
+
+<%= link_to 'Back to items', items_path, class: 'inline-block mt-2' %>

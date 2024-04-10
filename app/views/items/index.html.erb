@@ -1,28 +1,30 @@
-<h1>Items</h1>
+<div class='flex justify-between items-center'>
+  <h1 class='text-3xl font-semibold'>Items</h1>
+  <%= link_to 'New Item', new_item_path, class: 'px-4 py-2 bg-indigo-600 text-white rounded-md' %>
+</div>
 
-<%= link_to 'New Item', new_item_path %>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Expected cost</th>
-      <th>Is done?</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.title, item %></td>
-        <td><%= item.expected_cost %></td>
-        <td><%= item.is_done %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td>
-          <%= button_to 'Delete', item, method: :delete %>
-        </td>
-      </tr>
+<section class='mt-6 grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-6 gap-x-8 gap-y-6'>
+  <% @items.each do |item| %>
+    <% if item.is_done? %>
+      <div class='flex justify-between items-center bg-gray-50 shadow-md p-4 border-t-4 border-indigo-200 rounded-lg transition duration-300 hover:shadow-lg'>
+        <div>
+          <h2 class='text-lg font-medium'><%= item.title %></h2>
+          <p><%= item.expected_cost %></p>
+        </div>
+        <div>
+          <%= button_to 'Delete', item, method: :delete, class: 'px-4 py-2 text-gray-600 bg-rose-100 text-rose-500 rounded-md'%>
+        </div>
+      </div>
+    <% else %>
+      <div class='flex justify-between items-center shadow-md p-4 bg-gray-50 rounded-lg transition duration-300 hover:shadow-lg'>
+        <div>
+          <h2 class='text-lg font-medium'><%= item.title %></h2>
+          <p><%= item.expected_cost %></p>
+        </div>
+        <div>
+          <%= button_to 'Done!', item, method: :patch, params: { item: { is_done: true } }, class: 'px-4 py-2 text-gray-600 border border-gray-300 rounded-md'%>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</section>
