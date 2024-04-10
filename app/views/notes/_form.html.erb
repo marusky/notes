@@ -1,4 +1,4 @@
-<%= form_with model: @note do |f| %>
+<%= form_with model: @note, class: 'grid grid-cols-1 gap-y-6' do |f| %>
   <% if @note.errors.any? %>
     <ul>
       <% @note.errors.each do |error| %>
@@ -7,12 +7,14 @@
     </ul>
   <% end %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>    
+    <%= f.label :name, class: 'text-gray-600 text-sm font-medium' %>
+    <%= f.text_field :name, class: 'mt-1 w-full border-0 ring-1 px-3 py-1.5 ring-gray-300 rounded-md' %>    
   </div>
   <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.label :body, class: 'text-gray-600 text-sm font-medium' %>
+    <%= f.text_area :body, class: 'mt-1 w-full border-0 ring-1 px-3 py-1.5 ring-gray-300 rounded-md' %>
   </div>
-  <%= f.submit submit_text %>
+  <div>
+    <%= f.submit submit_text, class: 'px-4 py-2 bg-indigo-600 text-white rounded-md' %>
+  </div>
 <% end %>

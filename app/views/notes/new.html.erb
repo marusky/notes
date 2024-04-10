@@ -1,3 +1,7 @@
-<%= render 'form', submit_text: 'Let me note this!' %>
+<h1 class='text-2xl font-semibold'>New note</h1>
 
-<%= link_to 'Cancel', notes_path %>
+<div class='mt-6'>
+  <%= render 'form', submit_text: 'Let me note this!' %>
+</div>
+
+<%= link_to 'Cancel', notes_path, class: 'inline-block mt-2' %>
